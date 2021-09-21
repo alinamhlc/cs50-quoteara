@@ -1,0 +1,54 @@
+<!-- prettier-ignore-->
+{% extends "layout.html" %} 
+
+{% block title %} Log In {% endblock %} 
+
+{% block main %} 
+
+{% with messages = get_flashed_messages(category_filter=["success"]) %}
+    {% if messages %} 
+        {% for message in messages %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %} {% endif %} {% endwith %}
+
+<!-- prettier-ignore-->
+{% with messages = get_flashed_messages(category_filter=["error"]) %}
+    {% if messages %} 
+        {% for message in messages %}
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %} {% endif %} {% endwith %}
+<form class="sign-in-container" action="/login" method="post">
+  <div class="form-group">
+    <input
+      autocomplete="off"
+      autofocus
+      class="form-control"
+      name="username"
+      placeholder="Username"
+      type="text"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      class="form-control"
+      name="password"
+      placeholder="Password"
+      type="password"
+    />
+  </div>
+  <button class="btn btn-primary" type="submit">Log In</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+<!-- prettier-ignore-->
+{% extends "layout.html" %}
+
+{% block title %} 
+Quoteara 
+{% endblock %}
+
+{% block main %}
+
+{% if not session.user_id %}
+<div class="nli-text-container">
+  <h2>QUOTEARA</h2>
+  <p class="lead">
+    The place where your favourite books and quotes come together
+  </p>
+  <div class="nli-text">
+    <p>Already a member? Log in <a href="/login">here</a></p>
+    <p>Otherwise, register <a href="/register">here</a></p>
+  </div>
+</div>
+
+{% else %}
+<!-- <div class="li-text-container"> -->
+<h2 class="page-title">Your Quotes</h2>
+
+{% if not quotes %}
+<p>No quotes to show</p>
+
+<a href="/addquote">Add new quote</a>
+<!-- </div> -->
+{% else %} {% for quote in quotes %}
+<div class="card w-75 border-primary mb-3 mx-auto">
+  <!-- <div class="card-header">Quote</div> -->
+  <div class="card-body">
+    <blockquote class="text-body mb-0">
+      <p>{{ quote.quote }}</p>
+      <footer class="blockquote-footer">
+        {{ quote.authors | replace("[", "") | replace("'", "") | replace("]",
+        "") }} <cite>{{ quote.title }}</cite>
+      </footer>
+    </blockquote>
+  </div>
+</div>
+{% endfor %} {% endif %} {% endif %} {% endblock %}

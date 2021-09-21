@@ -1,0 +1,58 @@
+{% extends "layout.html" %} {% block title %} Add quote {% endblock %} {% block
+main %}
+<h2 class="page-title">Add new quote</h2>
+<div class="form-container">
+  <form id="addnewquote">
+    <div class="form-group">
+      <label for="selectbook">Choose one of your books</label>
+      <select class="form-control" id="selectbook" required>
+        <option disabled selected value>- select a book -</option>
+        {% for book in books %}
+        <option value="{{ book.book_id }}">
+          {{ book.title }}, by {{ book.authors | replace("[", "") | replace("'",
+          "") | replace("]", "") }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <textarea
+      class="form-control"
+      id="quote"
+      minlength="1"
+      maxlength="2048"
+      placeholder="Add quote text"
+      rows="9"
+    ></textarea>
+
+    <input
+      type="submit"
+      value="Add quote"
+      id="btn-submit-quote"
+      class="btn btn-primary"
+    />
+  </form>
+
+  <form id="scanPhoto" method="post" enctype="multipart/form-data">
+    <div class="form-row">
+      <div class="col-auto">
+        <label for="my_upload">Or add from file (convert image to text)</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-auto">
+        <input
+          class="form-control-file"
+          id="my_upload"
+          name="my_upload"
+          type="file"
+          accept="image/png, image/jpeg"
+        />
+      </div>
+      <div class="col-auto">
+        <input type="submit" value="Scan" class="btn btn-secondary" />
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
