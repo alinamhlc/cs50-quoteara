@@ -7,7 +7,7 @@
 Final project for [CS50x](https://cs50.harvard.edu/x/2021/).
 
 Quoteara is a web app via which users can manage their quotes. This tool allows users to import quotes and save their list of read books (or books for which they want to save quotes).
-The user will have to create an account and be logeed in for accessing the app functionalities.
+The user will have to create an account and be logged in for accessing the app functionalities.
 Quotes can be added either by text or by converting images to text.
 
 ## Tech/frameworks
