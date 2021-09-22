@@ -37,7 +37,7 @@ Quotes can be added either by text or by converting images to text.
 
 When user is not logged in: welcome message and instructions to login or register.
 
-![index page](./screenshots/index_page.png)
+![index page](https://github.com/alinamhlc/cs50-quoteara/blob/main/screenshots/index_page.PNG?raw=true)
 
 When user is logged in: list of the saved quotes
 
