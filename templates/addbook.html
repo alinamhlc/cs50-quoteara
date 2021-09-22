@@ -1,0 +1,27 @@
+{% extends "layout.html" %} {% block title %} Add books {% endblock %} {% block
+main %}
+
+<div class="container">
+  <h2 id="title" class="page-title">Add books</h2>
+  <div class="row">
+    <div class="input-group mb-3">
+      <input
+        id="search-input"
+        type="text"
+        class="form-control"
+        placeholder="search by title or author"
+        autofocus
+      />
+      <button id="search" class="btn btn-primary" type="button" onclick="">
+        Search
+      </button>
+    </div>
+  </div>
+
+  <div class="search-results">
+    <h4>Results</h4>
+    <div id="list-books" class=""></div>
+  </div>
+</div>
+
+{% endblock %}

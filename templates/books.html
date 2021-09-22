@@ -1,0 +1,37 @@
+<!-- prettier-ignore-->
+{% extends "layout.html" %} 
+{% block title %} 
+Your Books
+{% endblock %} 
+
+{% block main %}
+<h2 class="page-title">Your books</h2>
+{% if not books %}
+<p>No books to show</p>
+
+<a href="/addbook">Add books</a>
+
+{% else %}
+<div class="table-responsive table-position">
+  <table class="table table-hover table-light text-left">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <!-- <th scope="col">Quote</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+      <tr>
+        <td>{{ book.title }}</td>
+        <td>
+          {{ book.authors | replace("[", "") | replace("'", "") | replace("]",
+          "") }}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %} {% endblock %}
