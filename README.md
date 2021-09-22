@@ -29,21 +29,6 @@ Quotes can be added either by text or by converting images to text.
 - [Pillow](https://pillow.readthedocs.io/en/stable/) python library for processing the input file
 - [Python Tesseract](https://github.com/madmaze/pytesseract) python library for recognising and reading text embedded in images
 
-### Virtual environment
-
-The project is build in a [virtual environment](https://code.visualstudio.com/docs/python/environments). The packages installed are listed in `requirements.txt`.
-The connection credentials for the MySQL database are saved as environment varialbles in the `.env ` file. This file is found in the `env/` folder, which is added to `.gitignore` file.
-
-### Image to text to quote
-
-![add quote](screenshots/addquote.png)
-
-The image to be converted to text is uploaded via an `<input type="file">` HTML element. The input element is part of a form element, encoded as `multipart/form-data`. The file format and single file selection are checked with JavaScript functions (in `static/app.js`), before the file is further processed. The form data (the file image) is submitted to the server as a [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) using the `XMLHttpRequest.send()` method with AJAX.
-
-### Database schema
-
-![datbase schema](./screenshots/quoteara_db.png)
-
 ## Usage
 
 ### Quoteara("/")
