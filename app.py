@@ -222,11 +222,6 @@ def processbook():
                     (session["user_id"], book_id))
         mysql.connection.commit()
 
-        # Open a file with access mode 'a'
-        with open("sample.txt", "a") as file_object:
-            # Append 'hello' at the end of file
-            file_object.write(str(session["user_id"]) + " - " + book_id + "\n")
-
         return jsonify({'success' : 'Book added to your list'})
 
     return jsonify({'error' : 'Missing data!'})
